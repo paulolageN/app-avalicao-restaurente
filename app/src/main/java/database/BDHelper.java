@@ -20,7 +20,7 @@ public class BDHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         try{
             // cria as tabelas do db
-            db.execSQL("CREATE TABLE usuario(idUsuario INTERGER PRIMARY KEY " +
+            db.execSQL("CREATE TABLE usuario(idUsuario INTEGER PRIMARY KEY " +
                         "AUTOINCREMENT, nomeUsuario TEXT NOT NULL," +
                         "emailUsuario TEXT NOT NULL, fotoUsuario TEXT)");
 
