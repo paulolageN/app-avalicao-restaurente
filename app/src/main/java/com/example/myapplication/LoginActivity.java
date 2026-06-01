@@ -19,7 +19,7 @@ import model.Usuario;
 
 public class LoginActivity extends AppCompatActivity {
     ActivityLoginBinding binding;
-    UsuarioController usuarioController
+    UsuarioController usuarioController;
     SharedPreferences preferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
 
-        preferences = getSharedPreferences("dadosusuario", MODE_PRIVATE);
+        preferences = getSharedPreferences("usuario", MODE_PRIVATE);
         verificarLogin();
 
         usuarioController = new UsuarioController(LoginActivity.this);
@@ -47,7 +47,10 @@ public class LoginActivity extends AppCompatActivity {
                 Usuario user = usuarioController.login(email, senha);
 
                 if (user != null){
+                    preferences = getSharedPreferences("usuario", MODE_PRIVATE);
+
                     SharedPreferences.Editor editor = preferences.edit();
+                    editor.putInt("id", user.getIdUsuario());
                     editor.putBoolean("logado", true);
 
                     if (binding.switchLogado.isChecked()){
@@ -55,6 +58,8 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     editor.apply();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
                 } else{
                     Toast.makeText(LoginActivity.this, "Usuario ou senha invalidos", Toast.LENGTH_LONG).show();
                 }

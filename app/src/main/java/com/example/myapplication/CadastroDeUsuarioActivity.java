@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -38,9 +39,9 @@ public class CadastroDeUsuarioActivity extends AppCompatActivity {
                 if(usuarioController.inserir(usuario)){
                     Toast.makeText(CadastroDeUsuarioActivity.this,"Seu cadastro foi realizado com sucesso!", Toast.LENGTH_LONG).show();
                     //Chamar a proxima tela principal
-                    //Intent intent = new Intent(CadUsuario.this, Main.class);
-                    // startActivity(intent);
-                    // finish();
+                    Intent intent = new Intent(CadastroDeUsuarioActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
                 }else{
                     Toast.makeText(CadastroDeUsuarioActivity.this,"Erro ao realizar o seu cadastro!", Toast.LENGTH_LONG).show();
                 }

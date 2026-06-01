@@ -131,7 +131,37 @@ public class UsuarioDAO {
             database.close();
 
         } catch (Exception e){
-            Log.e("UsuarioDAO", "erro ao deletar usuario"+e.getMessage());
+            Log.e("UsuarioDAO", "erro ao validar usuario"+e.getMessage());
+        }
+        return usuario;
+    }
+
+    // pegar dados do usuario
+    public Usuario listarDados(int id){
+        Usuario usuario = null;
+        try {
+            // abrir banco de dados para leitura
+            database = dbHelper.getReadableDatabase();
+            // deleta um usuario
+            Cursor cursor = database.rawQuery("SELECT * FROM usuario WHERE idUsuario " +
+                    "= ? ", new String[]{String.valueOf(id)});
+
+            if (cursor.moveToFirst()){
+                usuario = new Usuario();
+                usuario.setIdUsuario(cursor.getInt(cursor.getColumnIndexOrThrow("idUsuario")));
+                usuario.setNomeUsuario(cursor.getString(cursor.getColumnIndexOrThrow("nomeUsuario")));
+                usuario.setFotoUsuario(cursor.getString(cursor.getColumnIndexOrThrow("fotoUsuario")));
+                usuario.setEmailUsuario(cursor.getString(cursor.getColumnIndexOrThrow("emailUsuario")));
+                usuario.setSenhaUsuario(cursor.getString(cursor.getColumnIndexOrThrow("senhaUsuario")));
+            }
+
+            // fechar o cursor
+            cursor.close();
+            // fechar a conexao com o banco de dados
+            database.close();
+
+        } catch (Exception e){
+            Log.e("UsuarioDAO", "erro ao listar dados usuario"+e.getMessage());
         }
         return usuario;
     }

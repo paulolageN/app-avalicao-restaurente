@@ -112,10 +112,8 @@ public class UsuarioController {
 
     }
 
-
-
-
-
-
+    public Usuario listarDados(int id){
+        return usuarioDAO.listarDados(id);
+    }
 
 }

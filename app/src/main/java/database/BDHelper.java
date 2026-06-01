@@ -22,7 +22,7 @@ public class BDHelper extends SQLiteOpenHelper {
             // cria as tabelas do db
             db.execSQL("CREATE TABLE usuario(idUsuario INTEGER PRIMARY KEY " +
                         "AUTOINCREMENT, nomeUsuario TEXT NOT NULL," +
-                        "emailUsuario TEXT NOT NULL, fotoUsuario TEXT)");
+                        "emailUsuario TEXT NOT NULL, fotoUsuario TEXT, senhaUsuario TEXT NOT NULL)");
 
         }catch (Exception e){
             // apresenta o erro no logcat
