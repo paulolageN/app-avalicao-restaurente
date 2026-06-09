@@ -24,6 +24,11 @@ public class BDHelper extends SQLiteOpenHelper {
                         "AUTOINCREMENT, nomeUsuario TEXT NOT NULL," +
                         "emailUsuario TEXT NOT NULL, fotoUsuario TEXT, senhaUsuario TEXT NOT NULL)");
 
+            db.execSQL("CREATE TABLE restaurante(idRestaurante INTERGER PRIMARY KEY " +
+                    "AUTOINCREMENT, nomeRestaurante TEXT NOT NULL," +
+                    "enderecoRestaurante TEXT NOT NULL, telefoneRestaurante TEXT NOT NULL," +
+                    "descricao TEXT, horarioFuncionamento TEXT NOT NULL)");
+
         }catch (Exception e){
             // apresenta o erro no logcat
             e.printStackTrace();
@@ -36,6 +41,7 @@ public class BDHelper extends SQLiteOpenHelper {
        try{
            // exclui as tabelas do banco de dados
            db.execSQL("DROP TABLE IF EXISTS usuario");
+           db.execSQL("DROP TABLE IF EXISTS restaurante");
        } catch (Exception e){
            // apresenta o erro no logcat
            e.printStackTrace();
