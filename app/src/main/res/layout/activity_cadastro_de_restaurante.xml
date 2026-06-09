@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF9800"
+    android:orientation="vertical"
+    tools:context=".CadastroDeRestauranteActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_weight="0.1"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgVoltar"
+            android:layout_width="61dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="300dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/arrow_back_36dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_weight="0.1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AvaliaFood"
+            android:textColor="#373434"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cadastro de Restaurante"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:background="@drawable/background_rounded_left"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_marginTop="20dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/imageView6"
+                                android:layout_width="81dp"
+                                android:layout_height="71dp"
+                                app:srcCompat="@drawable/rounded_orange_button" />
+
+                            <ImageView
+                                android:id="@+id/fotoPerfil"
+                                android:layout_width="82dp"
+                                android:layout_height="71dp"
+                                app:srcCompat="@drawable/user" />
+
+                            <ImageView
+                                android:id="@+id/btnEditarFoto"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom|right"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/ic_camera" />
+                        </androidx.cardview.widget.CardView>
+
+                    </FrameLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.1"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/editNomeRestaurante"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:layout_marginTop="10dp"
+                        android:ems="10"
+                        android:hint="Nome do Restaurante"
+                        android:inputType="text" />
+
+                    <EditText
+                        android:id="@+id/editEnderecoRestaurante"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:layout_marginTop="10dp"
+                        android:ems="10"
+                        android:hint="Endereco"
+                        android:inputType="text" />
+
+                    <EditText
+                        android:id="@+id/editTelefoneRestaurante"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:layout_marginTop="10dp"
+                        android:ems="10"
+                        android:hint="Telefone"
+                        android:inputType="text" />
+
+                    <EditText
+                        android:id="@+id/editDescricao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:layout_marginTop="10dp"
+                        android:ems="10"
+                        android:hint="Descricao"
+                        android:inputType="text" />
+
+                    <EditText
+                        android:id="@+id/editHorarioRestaurante"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:layout_marginTop="10dp"
+                        android:ems="10"
+                        android:hint="Horario de funcionamento"
+                        android:inputType="text" />
+
+                    <Button
+                        android:id="@+id/btnEditarPerfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="100dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="100dp"
+                        android:background="@drawable/rounded_orange_button"
+                        android:text="Editar Restaurante" />
+
+                    <Button
+                        android:id="@+id/btnDeletarPerfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="100dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginRight="100dp"
+                        android:background="@drawable/rounded_red_button"
+                        android:backgroundTint="#D91709"
+                        android:text="deletar restaurante" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>
