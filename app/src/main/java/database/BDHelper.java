@@ -24,10 +24,10 @@ public class BDHelper extends SQLiteOpenHelper {
                         "AUTOINCREMENT, nomeUsuario TEXT NOT NULL," +
                         "emailUsuario TEXT NOT NULL, fotoUsuario TEXT, senhaUsuario TEXT NOT NULL)");
 
-            db.execSQL("CREATE TABLE restaurante(idRestaurante INTERGER PRIMARY KEY " +
+            db.execSQL("CREATE TABLE restaurante(idRestaurante INTEGER PRIMARY KEY " +
                     "AUTOINCREMENT, nomeRestaurante TEXT NOT NULL," +
                     "enderecoRestaurante TEXT NOT NULL, telefoneRestaurante TEXT NOT NULL," +
-                    "descricao TEXT, horarioFuncionamento TEXT NOT NULL)");
+                    "descricaoRestaurante TEXT, horarioFuncionamento TEXT NOT NULL)");
 
         }catch (Exception e){
             // apresenta o erro no logcat

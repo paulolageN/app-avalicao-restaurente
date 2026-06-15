@@ -32,7 +32,7 @@ public class RestauranteDAO {
             values.put("nomeRestaurante",restaurante.getNomeRestaurante());
             values.put("enderecoRestaurante",restaurante.getEnderecoRestaurante());
             values.put("telefoneRestaurante",restaurante.getTelefoneRestaurante());
-            values.put("descricao",restaurante.getDescricao());
+            values.put("descricaoRestaurante",restaurante.getDescricaoRestaurnate());
             values.put("horarioFuncionamento",restaurante.getHorarioFuncionamento());
 
             long result = database.insert("restaurante", null,values);
@@ -64,7 +64,7 @@ public class RestauranteDAO {
             values.put("nomeRestaurante",restaurante.getNomeRestaurante());
             values.put("enderecoRestaurante",restaurante.getEnderecoRestaurante());
             values.put("telefoneRestaurante",restaurante.getTelefoneRestaurante());
-            values.put("descricao",restaurante.getDescricao());
+            values.put("descricao",restaurante.getDescricaoRestaurnate());
             values.put("horarioFuncionamento",restaurante.getHorarioFuncionamento());;
 
             long result = database.update("restaurante", values, "idRestaurante = ?", new String[]{String.valueOf(restaurante.getIdRestaurante())});
@@ -123,11 +123,11 @@ public class RestauranteDAO {
             if (cursor.moveToFirst()){
                 restaurante = new Restaurante();
                 restaurante.setIdRestaurante(cursor.getInt(cursor.getColumnIndexOrThrow("idRestaurante")));
-                restaurante.setIdRestaurante(cursor.getInt(cursor.getColumnIndexOrThrow("nomeRestaurante")));
-                restaurante.setIdRestaurante(cursor.getInt(cursor.getColumnIndexOrThrow("enderecoRestaurante")));
-                restaurante.setIdRestaurante(cursor.getInt(cursor.getColumnIndexOrThrow("telefoneRestaurante")));
-                restaurante.setIdRestaurante(cursor.getInt(cursor.getColumnIndexOrThrow("descricaoRestaurante")));
-                restaurante.setIdRestaurante(cursor.getInt(cursor.getColumnIndexOrThrow("horarioFuncionamento")));
+                restaurante.setNomeRestaurante(cursor.getString(cursor.getColumnIndexOrThrow("nomeRestaurante")));
+                restaurante.setEnderecoRestaurante(cursor.getString(cursor.getColumnIndexOrThrow("enderecoRestaurante")));
+                restaurante.setTelefoneRestaurante(cursor.getString(cursor.getColumnIndexOrThrow("telefoneRestaurante")));
+                restaurante.setDescricaoRestaurante(cursor.getString(cursor.getColumnIndexOrThrow("descricaoRestaurante")));
+                restaurante.setHorarioFuncionamento(cursor.getString(cursor.getColumnIndexOrThrow("horarioFuncionamento")));
             }
 
             // fechar o cursor
@@ -148,17 +148,17 @@ public class RestauranteDAO {
             // abrir banco de dados para leitura
             database = dbHelper.getReadableDatabase();
             Cursor cursor = database.rawQuery("SELECT * FROM restaurante ",
-                    new String[]{String.valueOf(0)});
+                     null);
 
             if (cursor.moveToFirst()){
                 do {
                     Restaurante restaurante  = new Restaurante();
                     restaurante.setIdRestaurante(cursor.getInt(cursor.getColumnIndexOrThrow("idRestaurante")));
-                    restaurante.setIdRestaurante(cursor.getInt(cursor.getColumnIndexOrThrow("nomeRestaurante")));
-                    restaurante.setIdRestaurante(cursor.getInt(cursor.getColumnIndexOrThrow("enderecoRestaurante")));
-                    restaurante.setIdRestaurante(cursor.getInt(cursor.getColumnIndexOrThrow("telefoneRestaurante")));
-                    restaurante.setIdRestaurante(cursor.getInt(cursor.getColumnIndexOrThrow("descricaoRestaurante")));
-                    restaurante.setIdRestaurante(cursor.getInt(cursor.getColumnIndexOrThrow("horarioFuncionamento")));
+                    restaurante.setNomeRestaurante(cursor.getString(cursor.getColumnIndexOrThrow("nomeRestaurante")));
+                    restaurante.setEnderecoRestaurante(cursor.getString(cursor.getColumnIndexOrThrow("enderecoRestaurante")));
+                    restaurante.setTelefoneRestaurante(cursor.getString(cursor.getColumnIndexOrThrow("telefoneRestaurante")));
+                    restaurante.setDescricaoRestaurante(cursor.getString(cursor.getColumnIndexOrThrow("descricaoRestaurante")));
+                    restaurante.setHorarioFuncionamento(cursor.getString(cursor.getColumnIndexOrThrow("horarioFuncionamento")));
 
                     restaurantes.add(restaurante);
                 } while (cursor.moveToNext());

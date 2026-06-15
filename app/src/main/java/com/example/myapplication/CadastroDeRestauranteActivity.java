@@ -24,13 +24,8 @@ public class CadastroDeRestauranteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_cadastro_de_restaurante);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        binding = ActivityCadastroDeRestauranteBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         restauranteController = new RestauranteController(CadastroDeRestauranteActivity.this);
 
@@ -41,7 +36,7 @@ public class CadastroDeRestauranteActivity extends AppCompatActivity {
                 restaurante.setNomeRestaurante(binding.editNomeRestaurante.getText().toString());
                 restaurante.setEnderecoRestaurante(binding.editEnderecoRestaurante.getText().toString());
                 restaurante.setTelefoneRestaurante(binding.editTelefoneRestaurante.getText().toString());
-                restaurante.setDescricao(binding.editDescricao.getText().toString());
+                restaurante.setDescricaoRestaurante(binding.editDescricao.getText().toString());
                 restaurante.setHorarioFuncionamento(binding.editHorarioRestaurante.getText().toString());
 
                 if(restauranteController.inserir(restaurante)){

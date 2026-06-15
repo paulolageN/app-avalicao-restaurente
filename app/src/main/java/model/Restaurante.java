@@ -5,7 +5,7 @@ public class Restaurante {
     private String nomeRestaurante;
     private String enderecoRestaurante;
     private String telefoneRestaurante;
-    private String descricao;
+    private String descricaoRestaurante;
     private String horarioFuncionamento;
 
     public String getNomeRestaurante() {
@@ -32,12 +32,12 @@ public class Restaurante {
         this.telefoneRestaurante = telefoneRestaurante;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescricaoRestaurnate() {
+        return descricaoRestaurante;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescricaoRestaurante(String descricaoRestaurante) {
+        this.descricaoRestaurante = descricaoRestaurante;
     }
 
     public String getHorarioFuncionamento() {

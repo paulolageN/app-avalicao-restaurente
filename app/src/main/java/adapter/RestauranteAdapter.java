@@ -18,7 +18,7 @@ import model.Restaurante;
 public class RestauranteAdapter extends ArrayAdapter<Restaurante> {
 
     public RestauranteAdapter(Context context, ArrayList<Restaurante> restaurantes) {
-        super(context, 0);
+        super(context, 0, restaurantes);
     }
 
     @NonNull
@@ -40,8 +40,6 @@ public class RestauranteAdapter extends ArrayAdapter<Restaurante> {
         binding.txtViewNomeRestaurante.setText(restaurante.getNomeRestaurante());
         binding.txtViewEnderecoRestaurante.setText(restaurante.getEnderecoRestaurante());
         binding.idRestaurante.setText(Integer.toString(restaurante.getIdRestaurante()));
-
-
 
         return convertView;
     }
