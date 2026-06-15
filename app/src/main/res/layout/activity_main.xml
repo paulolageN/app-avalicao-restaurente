@@ -12,5 +12,11 @@
         android:id="@+id/botao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="cadastro de usuario" />
+
+    <Button
+        android:id="@+id/listarRestaurantes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="listar restaurantes" />
 </LinearLayout>

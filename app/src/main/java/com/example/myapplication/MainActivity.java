@@ -34,5 +34,14 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        binding.listarRestaurantes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ListarRestaurantesActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }
