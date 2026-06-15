@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 import database.BDHelper;
 import model.Restaurante;
 import model.Usuario;
@@ -109,13 +111,12 @@ public class RestauranteDAO {
         }
     }
 
-    // pegar dados do restaurante
+    // listar dados do restaurante
     public Restaurante listarDados(int id){
         Restaurante restaurante = null;
         try {
             // abrir banco de dados para leitura
             database = dbHelper.getReadableDatabase();
-            // deleta um usuario
             Cursor cursor = database.rawQuery("SELECT * FROM restaurante WHERE idRestaurante " +
                     "= ? ", new String[]{String.valueOf(id)});
 
@@ -135,9 +136,43 @@ public class RestauranteDAO {
             database.close();
 
         } catch (Exception e){
-            Log.e("UsuarioDAO", "erro ao listar dados usuario"+e.getMessage());
+            Log.e("UsuarioDAO", "erro ao listar restaurante"+e.getMessage());
         }
         return restaurante;
+    }
+
+    // listar todos os restaurantes
+    public ArrayList<Restaurante> listarRestaurantes(){
+        ArrayList<Restaurante> restaurantes = new ArrayList<>();
+        try {
+            // abrir banco de dados para leitura
+            database = dbHelper.getReadableDatabase();
+            Cursor cursor = database.rawQuery("SELECT * FROM restaurante ",
+                    new String[]{String.valueOf(0)});
+
+            if (cursor.moveToFirst()){
+                do {
+                    Restaurante restaurante  = new Restaurante();
+                    restaurante.setIdRestaurante(cursor.getInt(cursor.getColumnIndexOrThrow("idRestaurante")));
+                    restaurante.setIdRestaurante(cursor.getInt(cursor.getColumnIndexOrThrow("nomeRestaurante")));
+                    restaurante.setIdRestaurante(cursor.getInt(cursor.getColumnIndexOrThrow("enderecoRestaurante")));
+                    restaurante.setIdRestaurante(cursor.getInt(cursor.getColumnIndexOrThrow("telefoneRestaurante")));
+                    restaurante.setIdRestaurante(cursor.getInt(cursor.getColumnIndexOrThrow("descricaoRestaurante")));
+                    restaurante.setIdRestaurante(cursor.getInt(cursor.getColumnIndexOrThrow("horarioFuncionamento")));
+
+                    restaurantes.add(restaurante);
+                } while (cursor.moveToNext());
+            }
+
+            // fechar o cursor
+            cursor.close();
+            // fechar a conexao com o banco de dados
+            database.close();
+
+        } catch (Exception e){
+            Log.e("UsuarioDAO", "erro ao listar todos os restaurantes"+e.getMessage());
+        }
+        return restaurantes;
     }
 }
 

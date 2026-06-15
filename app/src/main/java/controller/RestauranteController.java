@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.Patterns;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import dao.RestauranteDAO;
 import dao.UsuarioDAO;
 import model.Restaurante;
@@ -81,6 +83,10 @@ public class RestauranteController {
 
     public Restaurante listarDados(int id){
         return restauranteDAO.listarDados(id);
+    }
+
+    public ArrayList<Restaurante> listarRestaurantes(){
+        return restauranteDAO.listarRestaurantes();
     }
 
 }
