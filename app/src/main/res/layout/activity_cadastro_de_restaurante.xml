@@ -165,25 +165,15 @@
                         android:inputType="text" />
 
                     <Button
-                        android:id="@+id/btnEditarPerfil"
+                        android:id="@+id/btnCadastrarRestaurante"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="100dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="100dp"
                         android:background="@drawable/rounded_orange_button"
-                        android:text="Editar Restaurante" />
+                        android:text="Cadastrar" />
 
-                    <Button
-                        android:id="@+id/btnDeletarPerfil"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="100dp"
-                        android:layout_marginTop="50dp"
-                        android:layout_marginRight="100dp"
-                        android:background="@drawable/rounded_red_button"
-                        android:backgroundTint="#D91709"
-                        android:text="deletar restaurante" />
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
