@@ -47,7 +47,7 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Informacoes de perfil"
+            android:text="Restaurantes"
             android:textSize="18sp" />
     </LinearLayout>
 

@@ -35,6 +35,7 @@ public class CadastroDeUsuarioActivity extends AppCompatActivity {
                 usuario.setNomeUsuario(binding.editNome.getText().toString());
                 usuario.setEmailUsuario(binding.editEmail.getText().toString());
                 usuario.setSenhaUsuario(binding.editSenha.getText().toString());
+                usuario.setFotoUsuario("user.png");
 
                 if(usuarioController.inserir(usuario)){
                     Toast.makeText(CadastroDeUsuarioActivity.this,"Seu cadastro foi realizado com sucesso!", Toast.LENGTH_LONG).show();

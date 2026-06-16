@@ -83,6 +83,56 @@ public class DetalhesDoUsuarioActivity extends AppCompatActivity {
             }
         });
 
+        binding.btnEditarPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                user.setNomeUsuario(binding.editNomeUsuario.getText().toString());
+                user.setEmailUsuario(binding.editEmailUsuario.getText().toString());
+                user.setSenhaUsuario(binding.editSenhaUsuario.getText().toString());
+                user.setFotoUsuario("user.png");
+
+                if(usuarioController.alterar(user)){
+                    Toast.makeText(DetalhesDoUsuarioActivity.this,"Seu cadastro foi realizado com sucesso!", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(DetalhesDoUsuarioActivity.this,"Erro ao realizar o seu cadastro!", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+
+        binding.btnDeletarPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(DetalhesDoUsuarioActivity.this);
+                builder.setTitle("Confirmar exclusao do perfil");
+                builder.setMessage("Tem certeza que deseja excluir o seu perfil?");
+                builder.setPositiveButton("sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        usuarioController = new UsuarioController(DetalhesDoUsuarioActivity.this);
+                        usuarioController.excluir(user);
+                        Toast.makeText(DetalhesDoUsuarioActivity.this, "Perfil excluido com sucesso", Toast.LENGTH_LONG).show();
+
+                        // limpa os dados da sessao
+                        SharedPreferences prefs = getSharedPreferences("usuario", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = prefs.edit();
+                        editor.clear();
+                        editor.apply();
+
+                        // refireciona para a tela de login
+                        Intent intent = new Intent(DetalhesDoUsuarioActivity.this, LoginActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+
+                builder.setNegativeButton("Cancelar", null);
+                builder.show();
+
+            }
+        });
+
     }
 
     // verifica se o app tem permisao para acessar a galeria
@@ -165,4 +215,6 @@ public class DetalhesDoUsuarioActivity extends AppCompatActivity {
 
         return foto;
     }
+
+
 }
