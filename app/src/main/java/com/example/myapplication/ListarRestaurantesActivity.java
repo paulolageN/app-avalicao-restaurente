@@ -1,7 +1,13 @@
 package com.example.myapplication;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +21,7 @@ import java.util.ArrayList;
 
 import adapter.RestauranteAdapter;
 import controller.RestauranteController;
+import controller.UsuarioController;
 import model.Restaurante;
 
 public class ListarRestaurantesActivity extends AppCompatActivity {
@@ -39,6 +46,36 @@ public class ListarRestaurantesActivity extends AppCompatActivity {
 
         RestauranteAdapter adapter = new RestauranteAdapter(this, restaurantes);
         binding.listaRestaurantes.setAdapter(adapter);
+        binding.listaRestaurantes.setLongClickable(true);
+
+        binding.listaRestaurantes.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(ListarRestaurantesActivity.this);
+                builder.setTitle("Confirmar exclusao do restaurante");
+                builder.setMessage("Tem certeza que deseja excluir o seu perfil?");
+                builder.setPositiveButton("sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        controller = new RestauranteController(ListarRestaurantesActivity.this);
+                        controller.excluir(restaurante);
+                        Toast.makeText(ListarRestaurantesActivity.this, "Perfil excluido com sucesso", Toast.LENGTH_LONG).show();
+
+                        // refireciona para a tela de login
+                        Intent intent = new Intent(ListarRestaurantesActivity.this, LoginActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+
+                builder.setNegativeButton("Cancelar", null);
+                builder.show();
+
+
+                return true;
+            }
+        });
 
     }
 }

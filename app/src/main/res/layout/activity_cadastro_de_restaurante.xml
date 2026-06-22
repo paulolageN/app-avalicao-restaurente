@@ -165,7 +165,7 @@
                         android:inputType="text" />
 
                     <Button
-                        android:id="@+id/btnEditarRestaurante"
+                        android:id="@+id/btnCadastrarRestaurante"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="100dp"

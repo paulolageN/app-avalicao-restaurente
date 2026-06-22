@@ -1,6 +1,7 @@
 package adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.ArrayAdapter;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.myapplication.DetalhesDoRestauranteActivity;
 import com.example.myapplication.databinding.ItemRestauranteBinding;
 
 import java.util.ArrayList;
@@ -41,6 +43,16 @@ public class RestauranteAdapter extends ArrayAdapter<Restaurante> {
         binding.txtViewEnderecoRestaurante.setText(restaurante.getEnderecoRestaurante());
         binding.idRestaurante.setText(Integer.toString(restaurante.getIdRestaurante()));
 
+        binding.btnVerMais.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DetalhesDoRestauranteActivity.class);
+                intent.putExtra("restaurante", restaurante);
+                getContext().startActivity(intent);
+            }
+        });
+
         return convertView;
+
     }
 }

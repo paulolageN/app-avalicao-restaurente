@@ -70,7 +70,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:layout_margin="4dp"
+                    android:layout_margin="10dp"
                     android:layout_weight="0.1"
                     android:gravity="center"
                     android:orientation="vertical">
@@ -79,31 +79,36 @@
                         android:id="@+id/txtNomeRestaurante"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:text="Nome: "
+                        android:textColor="#000000" />
 
                     <TextView
                         android:id="@+id/txtEnderecoRestaurante"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:text="Endereco;"
+                        android:textColor="#000000" />
 
                     <TextView
                         android:id="@+id/txtTelefone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Telefone" />
+                        android:text="Telefone: "
+                        android:textColor="#000000" />
 
                     <TextView
                         android:id="@+id/txtDescricaoRestaurante"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Descricao" />
+                        android:text="Descricao: "
+                        android:textColor="#000000" />
 
                     <TextView
                         android:id="@+id/txtHorarioRestaurante"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Horario de Funcionamento" />
+                        android:text="Horario de Funcionamento: "
+                        android:textColor="#000000" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -116,7 +121,11 @@
                         android:id="@+id/textView9"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Avaliacoes" />
+                        android:layout_marginLeft="10dp"
+                        android:text="Avaliacoes"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <ListView
                         android:id="@+id/Avaliacoes"
