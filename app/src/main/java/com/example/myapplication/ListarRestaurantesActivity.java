@@ -48,24 +48,28 @@ public class ListarRestaurantesActivity extends AppCompatActivity {
         binding.listaRestaurantes.setAdapter(adapter);
         binding.listaRestaurantes.setLongClickable(true);
 
+        binding.imgVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ListarRestaurantesActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         binding.listaRestaurantes.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(ListarRestaurantesActivity.this);
                 builder.setTitle("Confirmar exclusao do restaurante");
-                builder.setMessage("Tem certeza que deseja excluir o seu perfil?");
+                builder.setMessage("Tem certeza que deseja excluir o restaurante?");
                 builder.setPositiveButton("sim", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         controller = new RestauranteController(ListarRestaurantesActivity.this);
-                        controller.excluir(restaurante);
-                        Toast.makeText(ListarRestaurantesActivity.this, "Perfil excluido com sucesso", Toast.LENGTH_LONG).show();
-
-                        // refireciona para a tela de login
-                        Intent intent = new Intent(ListarRestaurantesActivity.this, LoginActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intent);
-                        finish();
+                        controller.excluir(restaurantes.get(position));
+                        restaurantes.remove(position);
+                        adapter.notifyDataSetChanged();
+                        Toast.makeText(ListarRestaurantesActivity.this, "Restaurante excluido com sucesso", Toast.LENGTH_LONG).show();
                     }
                 });
 

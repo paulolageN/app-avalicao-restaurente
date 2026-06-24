@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.myapplication.AvaliarRestauranteActivity;
 import com.example.myapplication.DetalhesDoRestauranteActivity;
 import com.example.myapplication.databinding.ItemRestauranteBinding;
 
@@ -47,6 +48,15 @@ public class RestauranteAdapter extends ArrayAdapter<Restaurante> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), DetalhesDoRestauranteActivity.class);
+                intent.putExtra("restaurante", restaurante);
+                getContext().startActivity(intent);
+            }
+        });
+
+        binding.btnAvaliarRestaurante.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), AvaliarRestauranteActivity.class);
                 intent.putExtra("restaurante", restaurante);
                 getContext().startActivity(intent);
             }

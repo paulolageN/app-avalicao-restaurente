@@ -20,6 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".AvaliarRestauranteActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetalhesDoRestauranteActivity"
             android:exported="false" />
         <activity

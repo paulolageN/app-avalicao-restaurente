@@ -63,6 +63,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#8B0000"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:text="Ver Mais"
                 android:textColor="#FFFFFF" />
 
@@ -76,6 +78,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#FFC107"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:text="Avaliar"
                 android:textColor="#FFFFFF" />
 

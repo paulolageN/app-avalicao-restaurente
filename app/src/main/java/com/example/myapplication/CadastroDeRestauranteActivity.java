@@ -29,7 +29,7 @@ public class CadastroDeRestauranteActivity extends AppCompatActivity {
 
         restauranteController = new RestauranteController(CadastroDeRestauranteActivity.this);
 
-        binding.btnCadastrarRestaurante.setOnClickListener(new View.OnClickListener() {
+        binding.btnCadstrarRestaurante.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 restaurante = new Restaurante();
